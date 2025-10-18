@@ -4,10 +4,261 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <title>Document</title>
+    <title>Shop - KIMZAE</title>
+    <style>
+    /* Reset and base */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;color:#222;background:#fff}
+
+    .container{max-width:1200px;margin:0 auto;padding:28px 16px}
+
+    /* Promo bar */
+    .promo{background:#111;color:#fff;font-size:14px;padding:10px 0}
+    .promo .wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:center;position:relative}
+    .promo .nav-arrows{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px;opacity:.8}
+    .promo .nav-arrows.right{right:12px;left:auto}
+
+    /* Header */
+    header.site-header{background:#fff}
+    .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:22px 16px;border-bottom:1px solid #eee}
+    .logo{font-family:Georgia, 'Times New Roman', serif;font-size:28px;letter-spacing:.5px}
+    nav.main-nav{flex:1;margin:0 40px}
+    nav.main-nav ul{display:flex;gap:28px;list-style:none;justify-content:center}
+    nav.main-nav a{color:#333;text-decoration:none;font-size:15px;padding:6px 0}
+    .icons{display:flex;gap:18px;align-items:center}
+    .icon{width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#222}
+    .icon.cart{position:relative}
+    .badge{position:absolute;right:-6px;top:-6px;background:#111;color:#fff;border-radius:50%;padding:3px 6px;font-size:12px}
+
+    /* Toolbar (filter/sort) */
+    .toolbar{max-width:1200px;margin:28px auto;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+    .filters{display:flex;gap:20px;color:#6b6b6b;font-size:14px}
+    .filters .label{color:#222;font-weight:600;margin-right:8px}
+    .count{color:#6b6b6b}
+
+    /* Products grid */
+    .products{max-width:1200px;margin:24px auto}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+
+    .card{background:transparent}
+    .card .imgwrap{width:100%;padding-top:100%;position:relative;border-radius:100px 100px 0px 0px;overflow:hidden;background:#f6f6f6}
+    .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+
+    .meta{margin-top:14px}
+    .title{font-weight:700;font-size:13px;text-transform:uppercase;color:#111;margin-bottom:8px}
+    .price{color:#222;font-size:15px;margin-bottom:14px}
+
+    .actions{display:flex;gap:12px}
+    .btn{flex:1;padding:12px 16px;border-radius:14px;border:1px solid #111;background:transparent;color:#111;text-align:center;font-size:15px}
+
+    /* Make buttons outlined like screenshot */
+    .btn.outline{border:1px solid #111}
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .grid{grid-template-columns:repeat(3,1fr)}
+      .header-inner, .promo .wrap, .toolbar{max-width:980px}
+    }
+    @media (max-width:800px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      nav.main-nav{display:none}
+      .container{padding:20px 10px}
+    }
+    @media (max-width:480px){
+      .grid{grid-template-columns:1fr}
+      .btn{font-size:14px}
+    }
+    /* Footer styles */
+    .site-footer{border-top:1px solid #eee;padding:60px 0 40px;background:#fff}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;align-items:start;padding:0 16px}
+    .footer-logo{font-family:Georgia, 'Times New Roman', serif;font-size:22px;margin-bottom:12px}
+    .footer-cta{color:#6b6b6b;font-style:italic;line-height:1.7}
+    .footer-links h4{font-size:18px;margin-bottom:12px}
+    .footer-links ul{list-style:none;padding:0}
+    .footer-links li{margin-bottom:10px;color:#6b6b6b}
+    .payments{display:flex;gap:12px;align-items:center}
+    .newsletter{max-width:420px;margin:32px auto 0}
+    .newsletter input{width:100%;padding:16px;border:1px solid #ddd;border-radius:4px}
+    .footer-bottom{border-top:1px solid #f1f1f1;margin-top:36px;padding-top:18px;text-align:center;color:#999;font-size:14px}
+    </style>
 </head>
 <body>
-    
+
+  <div class="promo">
+    <div class="wrap">
+      <div class="nav-arrows">&lt;</div>
+      <div>Announcecment</div>
+      <div class="nav-arrows right">&gt;</div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">KIMZAI</div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#">Earrings</a></li>
+          <li><a href="#">Necklace</a></li>
+          <li><a href="#">Rings</a></li>
+          <li><a href="#">Anti-Tarnish</a></li>
+          <li><a href="#">Bracelets</a></li>
+          <li><a href="#">Hair Accessories</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="icons">
+        <div class="icon user" title="Account" aria-label="Account">👤</div>
+        <div class="icon cart" title="Cart" aria-label="Cart">👜<span class="badge">0</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="filters">
+      <div><span class="label">Filter:</span> <span>Availability ▾</span></div>
+      <div><span class="label">Price</span> ▾</div>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center">
+      <div>Sort by: <strong>Best selling</strong> ▾</div>
+    </div>
+  </div>
+
+  <main class="container products">
+    <div class="grid">
+       <!-- product 1 -->
+      <div class="card">
+        <div class="imgwrap"><img src="" alt="product"></div>
+        <div class="meta">
+          <div class="title">TBD</div>
+          <div class="price">Rs. 00.00</div>
+          <div class="actions"><button class="btn outline">Add to cart</button></div>
+        </div>
+      </div>
+
+      <!-- product 2 -->
+      <div class="card">
+        <div class="imgwrap"><img src="" alt="product"></div>
+        <div class="meta">
+          <div class="title">TBD</div>
+          <div class="price">Rs. 00.00</div>
+          <div class="actions"><button class="btn outline">Add to cart</button></div>
+        </div>
+      </div>
+
+      <!-- product 3 -->
+      <div class="card">
+        <div class="imgwrap"><img src="" alt="product"></div>
+        <div class="meta">
+          <div class="title">TBD</div>
+          <div class="price">Rs. 00.00</div>
+          <div class="actions"><button class="btn outline">Add to cart</button></div>
+        </div>
+      </div>
+
+      <!-- product 4 -->
+      <div class="card">
+        <div class="imgwrap"><img src="" alt="product"></div>
+        <div class="meta">
+          <div class="title">TBD</div>
+          <div class="price">Rs. 00.00</div>
+          <div class="actions"><button class="btn outline">Add to cart</button></div>
+        </div>
+      </div>
+       <!-- product 5 -->
+      <div class="card">
+        <div class="imgwrap"><img src="" alt="product"></div>
+        <div class="meta">
+          <div class="title">TBD</div>
+          <div class="price">Rs. 00.00</div>
+          <div class="actions"><button class="btn outline">Add to cart</button></div>
+        </div>
+      </div>
+       <!-- product 6 -->
+      <div class="card">
+        <div class="imgwrap"><img src="" alt="product"></div>
+        <div class="meta">
+          <div class="title">TBD</div>
+          <div class="price">Rs. 00.00</div>
+          <div class="actions"><button class="btn outline">Add to cart</button></div>
+        </div>
+      </div>
+       <!-- product 7 -->
+      <div class="card">
+        <div class="imgwrap"><img src="" alt="product"></div>
+        <div class="meta">
+          <div class="title">TBD</div>
+          <div class="price">Rs. 00.00</div>
+          <div class="actions"><button class="btn outline">Add to cart</button></div>
+        </div>
+      </div>
+       <!-- product 8 -->
+      <div class="card">
+        <div class="imgwrap"><img src="" alt="product"></div>
+        <div class="meta">
+          <div class="title">TBD</div>
+          <div class="price">Rs. 00.00</div>
+          <div class="actions"><button class="btn outline">Add to cart</button></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">KIMZAI</div>
+        <p class="footer-cta">Explore our premium collection of chic and budget-friendly jewelry and hair accessories at unbeatable wholesale prices, perfect for every business need, only at KIMZAI!</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Helpful Links</h4>
+        <ul>
+          <li>About Us</li>
+          <li>Contact Us</li>
+          <li>Our Reviews</li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Important links</h4>
+        <ul>
+          <li>Privacy Policy</li>
+          <li>Refund Policy</li>
+          <li>Shipping Policy</li>
+          <li>Terms of Service</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;margin-top:28px">
+      <div>
+        <h4>Have Any Queries?</h4>
+        <p><strong>Mail:</strong> KIMZAI@gmail.com</p>
+        <p><strong>Whatsapp:</strong> 1234567890</p>
+        <p style="margin-top:12px;color:#6b6b6b">Address TBD</p>
+      </div>
+
+      <div style="text-align:center">
+        <div class="payments">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="visa" style="height:28px">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="mc" style="height:24px">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Google_Pay_logo.svg" alt="gpay" style="height:24px">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Paytm_logo.svg" alt="paytm" style="height:28px">
+        </div>
+        <div class="newsletter">
+          <h4 style="margin-top:18px">Get the Latest Trends, Delivered to Your Inbox.</h4>
+          <form><input type="email" placeholder="Email"></form>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">© <strong>KIMZAI</strong> — All rights reserved.</div>
+  </footer>
 
 </body>
 </html>
